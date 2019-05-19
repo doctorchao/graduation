@@ -1,0 +1,48 @@
+@import '@/globalcss/px-to-rem.scss';
+.top-box {
+	height: px-to-rem(250);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	i {
+		color: rgb(91, 198, 248);
+		font-size: 100px;
+	}
+}
+.register {
+	margin: px-to-rem(50);
+	li {
+		display: flex;
+		align-items: center;
+		line-height: 2;
+		margin-top: 10px;
+		.field {
+			width: 100%;
+			background: white// 不然在手机上会显示有根细线
+		}
+	}
+	i {
+		font-size: 25px;
+		opacity: 0.7;
+		margin-left: 5px;
+	}
+	.bot-line {
+		border: 0.5px solid rgb(205, 206, 207);
+	}
+	Button {
+		margin-right: 10px;
+		width: 60%;
+		background-color: rgba(245, 241, 241, 0.5);
+		border: none;
+	}
+}
+.btn-register {
+	margin-top: px-to-rem(150);
+	margin-left: px-to-rem(110);
+	.regbtn{
+		border-radius: 20px;
+		background-color: rgba(199, 195, 195, 0.5);
+		width: px-to-rem(500);
+		color: #656b79;
+	}
+}

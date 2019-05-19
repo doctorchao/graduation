@@ -1,0 +1,12 @@
+cnpm i node-sass --save-dev
+
+mongoose 模糊查询
+const data = await bookModel.find(
+    // {$or: [
+        {title: {$regex:titlemsg}}
+    // ]}
+)
+
+
+C:/VScode/project/graduation/ql-book/node_modules/mint-ui/lib/cell/style.css
+mint-cell-wrapper  120% 1px  改为0px 不然手机上会显示有细线
