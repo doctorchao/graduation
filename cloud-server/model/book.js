@@ -24,6 +24,10 @@ const bookmodel = new mongoose.Schema({
     startsnums:{
         type:Number,
         default:0
+    },
+    comment: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref:'comment'
     }
 }, {versionKey:false,timestamps:{createdAt:'createTime',updatedAt:'updateTime'}})
 

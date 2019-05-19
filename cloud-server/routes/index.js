@@ -10,7 +10,7 @@ const swiperRouter = require('./swiper')
 const uploadRouter = require('./upload')
 const colRouter = require('./collection')
 const readRouter = require('./read')
-
+const comRouter = require('./comment')
 
 // /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -27,6 +27,7 @@ router.use('/swiper', swiperRouter)
 router.use('/upload', uploadRouter)
 router.use('/collection', colRouter)
 router.use('/readList', readRouter)
+router.use('/comment', comRouter)
 
 module.exports = router;
 

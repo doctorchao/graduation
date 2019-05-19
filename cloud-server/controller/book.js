@@ -69,6 +69,10 @@ async function getBookById (req, res, next) {
     try {
         const {id} = req.params// 解构语法不用加.id
         const data = await bookModel.findById(id)
+            .populate({
+                path: 'comment',
+                sort: {_id: -1}
+            })
         res.json({
             code:200,
             data

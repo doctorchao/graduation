@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://192.168.42.244:3003',// 当访问http://192.168.1.118/swiper时
+        target: 'http://10.129.24.64:3003',// 当访问http://192.168.1.118/swiper时
         // target: 'https://m.yaojunrong.com',// 当访问http://192.168.1.118/swiper时
         // 会自动变为http://192.168.1.118/api/swiper 因此要加pathRewrite 10.129.24.64
         changeOrigin: true,

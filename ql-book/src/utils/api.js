@@ -15,4 +15,6 @@ export default {
   changepassword: '/user/changePassword', // 修改用户密码
   upload: '/upload', // 获取上传所需token
   findBook: '/book/find', // 关键词查找图书
+  doComment: '/comment', // 发表评论
+  getComment: '/comment', // 获取评论
 }

@@ -131,6 +131,14 @@ const router = new Router({
           },
           component: () => import('@/views/search')
         },
+        {
+          path: '/wang',
+          name: 'wang',
+          meta: {
+            title: ''
+          },
+          component: () => import('@/views/wang')
+        },
       ]
     },
     

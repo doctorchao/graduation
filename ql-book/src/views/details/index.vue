@@ -23,7 +23,7 @@
     </div>
     <div class="btns"><!--选项卡-->
       <Button size='small' @click="handlecollection">{{iscollection}}</Button>
-      <Button size='small'>分享好友</Button>
+      <Button size='small' @click="wang">分享好友</Button>
     </div>
     <div class="line"></div>
     <div class="title1">
@@ -106,11 +106,12 @@ export default {
           })
         }
       })
+    },
+    wang (){
+      this.$router.push('/wang')
     }
   },
-  // beforeCreate () {
-  //   document.title = '书籍详情'
-  // },
+  
   created () {
     this.getbookdata()
   }
