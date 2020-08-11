@@ -13,7 +13,9 @@
                @change="searchList" @focus="searchbtn" @blur="searchbtn"/>
           </form> 
         </div>
-        <Button class="btn" v-if= "isShow" size="small">搜索</Button>
+        <div>
+          <Button class="btn" v-if= "isShow" size="small">搜索</Button>
+        </div>
       </div>
       
       <Myswiper />
@@ -139,7 +141,7 @@ export default {
   }
   .find-wrap{
     display: flex;
-    align-items: center;
+    // align-items: center;
     justify-content: space-between;
     margin: 15px 0px;
     background: rgba(182, 180, 180, 0.5);
@@ -163,6 +165,7 @@ export default {
     .btn{
       height: px-to-rem(50);
       margin-right: px-to-rem(50);
+      margin-top: 3px;
     }
     .iconsousuo{
       font-size: 25px;

@@ -88,4 +88,7 @@ export default {
 .btn {
 	margin-top: 20px;
 }
+.ql-input{
+	line-height: 2
+}
 </style>

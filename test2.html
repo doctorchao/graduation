@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .fix{
+            position: fixed;
+            top: 200px;
+            left: 200px;
+        }
+        .box1{
+            width: 200px;
+            height: 2000px;
+            background-color: aqua;
+        }
+        .box2{
+            width: 200px;
+            height: 100px;
+            background-color: rgb(226, 106, 190);
+        }
+        .box{
+            margin-top: 20px;
+        }
+        .shadow{
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(240, 226, 150);
+            box-shadow: 0 0 10px rgb(144, 214, 255);
+        }
+        .video{
+            width: 100%;
+        }
+        .display{
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .box{
+            height: 50px;
+            width: 50px;
+            background-color: rgb(238, 128, 64);
+        }
+        li{
+            height: 50px;
+            width: 50px;
+            background-color: rgb(0, 83, 238);
+            list-style: none;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+        }
+        .media{
+            position: relative;
+            height: 210px;
+            width: 375px;
+        }
+        .v-img{
+            vertical-align: bottom;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+    <div class="fix" onclick="show()">点击</div> -->
+    <!-- <div id="box" onclick="fuck()">
+        <img src="./head.jpg" alt="">
+        <span>周青蓉宝宝</span>
+    </div>
+    <div id="box" onclick="kiss()">
+        <img src="./head.jpg" alt="">
+        <span>史瑞雪</span>
+    </div> -->
+    <div class="shadow"></div>
+    <div class="media">
+        <img src="./head.jpg" alt="" class="v-img" onclick="show()">
+        <video controls
+            width="100%"
+            webkit-playsinline="true"
+            x5-video-player-type="h5-page"
+            x5-video-player-fullscreen="true"
+            x5-video-orientation="portraint"
+            playsinline
+            poster="./head.jpg"
+            src="./liyitongoldserver.mp4"
+            class="video">
+        您的浏览器不支持当前视频播放
+        </video>
+        
+    </div>
+    <p onclick="show()">周青蓉啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+    <p>史瑞雪啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+    <!-- <div class="display">
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="box"></div>
+    </div>
+    <a href="tel:18332780127">包子</a> -->
+    <!-- <div>
+        <input id="phone"></input> <span onclick="copy(1)">复制</span>
+    </div>
+    <div>
+        <span id="email">我是周青蓉</span> <span onclick="copy(2)">复制</span>
+    </div>
+    <input type="text"> -->
+    <div style="margin: 50px auto;width: 300px;text-align: center;">您暂未关注任何内容，快去关注吧</div>
+    <div class="circle">
+
+    </div>
+</body>
+<script>
+    // function show(){
+    //     console.log(document.querySelector('.box'))
+    //     console.log(document.querySelector('.box').offsetHeight, 'offset高度')
+    //     console.log(document.querySelector('.box').scrollHeight, 'scroll高度')
+    //     console.log(document.body.scrollTop || document.documentElement.scrollTop, '已滚动高度')
+    //     console.log(window.innerHeight, 'window页面视图高度')
+    //     // console.log(document.documentElement.clientHeight || document.body, 'document页面视图高度')
+
+
+    // }
+    // var offsetHeight = document.querySelector('.box').offsetHeight
+    // var lock = true
+    // window.onscroll = function () {
+    //     var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    //     var innerHeight = window.innerHeight; // 页面可视高度
+    //     if((offsetHeight  == (scrollTop + innerHeight))&&lock){
+    //         console.log('到啦到啦')
+    //         lock = false
+    //     }
+    //     console.log(lock,'锁')
+    // }
+    function fuck(){
+        if(!document.querySelector('#box img')){
+            console.log('fuck周青蓉')
+        }else{
+            console.log('kiss周青蓉')
+        }
+        localStorage.setItem('girl','豆沙包')
+    }
+    function kiss(){
+        var gf = localStorage.getItem('girl')
+        console.log(gf,'小女孩')
+    }
+    function show(){
+        var video = document.querySelector('video')
+        // console.log(video.controls,'视频')
+        console.log('对象')
+        video.controls = true
+        video.autoplay = 'autoplay'
+    }
+    function copy(val){
+        var obj1 = document.getElementById('phone').value
+        var obj2 = document.getElementById('email').innerText
+        var ele = document.createElement('input')
+        document.body.appendChild(ele)
+        // ele.setAttribute('id','input')
+        // ele.style.opacity = 0
+        // ele.style.display = 'none'
+        switch(val){
+          case 1:
+            ele.value = obj1
+            console.log(ele.value,'value值')
+            // ele.focus()
+            ele.select()
+            document.execCommand("Copy")
+            document.body.removeChild(ele)
+          break;
+          case 2:
+            ele.value = obj2
+            // ele.focus()
+            ele.select()
+            console.log(ele.value,'value值')
+            document.execCommand("Copy")
+            document.body.removeChild(ele)
+          break;
+        }
+    }
+</script>
+</html>

@@ -7,7 +7,7 @@
           <div class="login-desc">摘星揽月会有时，我辈岂是蓬蒿人</div>
         </div>
         <div class="login-box-right">
-          <img src="@/assets/head.jpg" alt="">
+          <img :src="ningque" alt="">
           <i class="iconfont iconqianjin"></i>
         </div>
       </div>                      <!-- login-box-end-->
@@ -55,17 +55,73 @@
           </div>
           <i class="iconfont iconqianjin"></i>
         </li>
-        <li>
+        <li @click="getCol">
           <div class="tabs-collection">
             <i class="iconfont iconshoucang"></i>
             收藏书单
           </div>
           <i class="iconfont iconqianjin"></i>
         </li>
-        <li>
+        <li @click="getLike">
           <div class="tabs-like">
             <i class="iconfont iconaihao-"></i>
             喜欢的书
+          </div>
+          <i class="iconfont iconqianjin"></i>
+        </li>
+        <li @click="getTest('/useCell')">
+          <div class="tabs-like">
+            <i class="iconfont iconaihao-"></i>
+            测试单元1
+          </div>
+          <i class="iconfont iconqianjin"></i>
+        </li>
+        <li @click="getTest('/serviceSetting')">
+          <div class="tabs-like">
+            <i class="iconfont iconaihao-"></i>
+            测试单元2
+          </div>
+          <i class="iconfont iconqianjin"></i>
+        </li>
+        <li @click="getTest('/dateAndPrice')">
+          <div class="tabs-like">
+            <i class="iconfont iconaihao-"></i>
+            测试单元3
+          </div>
+          <i class="iconfont iconqianjin"></i>
+        </li>
+        <li @click="getTest('/seatSetting')">
+          <div class="tabs-like">
+            <i class="iconfont iconaihao-"></i>
+            测试单元4
+          </div>
+          <i class="iconfont iconqianjin"></i>
+        </li>
+        <li @click="getTest('/buyGoods')">
+          <div class="tabs-like">
+            <i class="iconfont iconaihao-"></i>
+            测试单元5
+          </div>
+          <i class="iconfont iconqianjin"></i>
+        </li>
+        <li @click="getTest('/orderDetail')">
+          <div class="tabs-like">
+            <i class="iconfont iconaihao-"></i>
+            测试单元6
+          </div>
+          <i class="iconfont iconqianjin"></i>
+        </li>
+        <li @click="getTest('/tiketsList')">
+          <div class="tabs-like">
+            <i class="iconfont iconaihao-"></i>
+            测试单元7
+          </div>
+          <i class="iconfont iconqianjin"></i>
+        </li>
+        <li @click="getTest('/shopOrder')">
+          <div class="tabs-like">
+            <i class="iconfont iconaihao-"></i>
+            测试单元8
           </div>
           <i class="iconfont iconqianjin"></i>
         </li>
@@ -103,7 +159,22 @@ export default {
       // this.$store.commit('CHANGE_USER_MSG', {})
     },
     changemsg () {
-      this.$router.push('/change')
+      var url = 'https://wx.zhijiashare.com/#/personcard'
+      this.$router.push({
+        name:'note',
+        params:{
+          url:url
+        }
+      })
+    },
+    getCol (){
+      this.$router.push('/collection?dwId="云课"')
+    },
+    getLike (){
+      this.$router.push('/like/123?dwId=12345')
+    },
+    getTest (val){
+      this.$router.push(val)
     }
   },
   created () {

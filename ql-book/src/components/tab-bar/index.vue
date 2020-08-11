@@ -7,7 +7,7 @@
       </TabItem>
       <TabItem id="study">
           <i class="iconfont iconxuexi" slot="icon"></i>
-          我的学习
+          我的阅读
       </TabItem>
       <TabItem id="center">
           <i class="iconfont icongerenzhongxin" slot="icon"></i>

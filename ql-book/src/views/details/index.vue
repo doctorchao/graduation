@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="book"><!-- 书籍概要-->
+    <div class="book">
       <div class="book-left">
         <img :src="bookdata.img" :alt="bookdata.img" class="img">
       </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="btns"><!--选项卡-->
       <Button size='small' @click="handlecollection">{{iscollection}}</Button>
-      <Button size='small' @click="wang">分享好友</Button>
+      <Button size='small' @click="handlejump">阅读</Button>
     </div>
     <div class="line"></div>
     <div class="title1">
@@ -43,7 +43,7 @@
     </div>
     <div class="line"></div>
     <div class="readbook">
-      <Button type="primary" size="large" @click="handlejump">阅读该书籍</Button>
+      <Button type="primary" size="large" @click="wang">评论</Button>
     </div>
   </div>
 </template>
@@ -68,6 +68,7 @@ export default {
   methods: {
     getbookdata () {
       const id = this.$route.params.id
+      console.log(id)
       this.$axios.get(this.$api.getbook + id).then(res => {
         console.log(res)
         let resData = res.data
@@ -108,10 +109,15 @@ export default {
       })
     },
     wang (){
-      this.$router.push('/wang')
+      this.$router.push({
+        name: 'wang',
+        params: {
+          id: this.bookdata._id
+        }
+      })
     }
   },
-  
+
   created () {
     this.getbookdata()
   }

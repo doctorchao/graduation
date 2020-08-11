@@ -9,7 +9,7 @@
 					{{item.book.title}}
 				</h2>
 				<div class="read-msg">
-					书籍{{item.title.index + 1}}/{{item.title.total}}章
+					书籍 {{item.title.index + 1}}/{{item.title.total}} 章
 				</div>
 				<div class="progress-wrap">
 					<!-- <div class="progress-item"> -->
@@ -25,8 +25,8 @@
 					<qltime :value='item.updateTime'></qltime>
 				</div>
 				<div class="btn-wrap">
-					<Button size='small'>继续阅读</Button>
-					<Button size='small'>查看文档</Button>
+					<Button size='small' @click="read(item.title._id)">继续阅读</Button>
+					<Button size='small' @click="detail(item.book._id)">查看文档</Button>
 				</div>
 			</div>
 		</div>
@@ -52,14 +52,29 @@ export default {
 	methods: {
 		getreadlist () {
 			this.$axios.get(this.$api.getread).then(res => {
-				console.log(res)
-				console.log(res.data[0].updateTime)
 				this.readlist = res.data
+				console.log(res)
+			})
+		},
+		read(val){
+			this.$router.push({
+				name: 'article',
+				params: {
+					id: val
+				}
+			})
+		},
+		detail(val){
+			this.$router.push({
+				name: 'details',
+				params: {
+					id: val
+				}
 			})
 		}
 	},
 	created () {
-		document.title = '我的学习'
+		document.title = '我的阅读'
 		this.getreadlist()
 	}
 }

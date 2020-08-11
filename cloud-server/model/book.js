@@ -25,10 +25,10 @@ const bookmodel = new mongoose.Schema({
         type:Number,
         default:0
     },
-    comment: {
+    comments: [{
         type: mongoose.SchemaTypes.ObjectId,
         ref:'comment'
-    }
+    }]
 }, {versionKey:false,timestamps:{createdAt:'createTime',updatedAt:'updateTime'}})
 
 module.exports = mongoose.model('book',bookmodel)

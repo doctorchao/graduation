@@ -16,5 +16,7 @@ export default {
   upload: '/upload', // 获取上传所需token
   findBook: '/book/find', // 关键词查找图书
   doComment: '/comment', // 发表评论
-  getComment: '/comment', // 获取评论
+  getComment: '/comment/get', // 获取评论
+  doReturn: '/return', //回复评论
+  getReturn: '/return/get', //获取评论回复
 }

@@ -12,8 +12,14 @@
     ["component", 
       {
       "libraryName": "mint-ui",
+      "libraryDirectory": "es",
       "style": true
-      }
+      },
+      // {
+      // "libraryName": "vant",
+      // "libraryDirectory": "es",
+      // "style": true
+      // }
     ],
     "transform-vue-jsx",
     "transform-runtime"

@@ -1,27 +1,55 @@
 <template>
   <div class="container">
-		<div class="publish">
-			<div class="wang-wrap">
-				<input type="text" placeholder="请输入你想说的话" class="wang-input" 
-					@focus="show"  v-show="isshow"/>
-				<div id="wang" class="wang" @blur="show" v-show="!isshow" style="min-height: 50px"></div>
+	<div class="publish">
+		<div class="input-wrap">
+			<textarea  placeholder="输入你想说的话" class="text-input" v-model="editorContent"></textarea>
+		</div>
+		<div>
+			<Button class="btn" size="small" @click="report">发表</Button>
+		</div>
+	</div>
+	<div class="comment" v-for="(item, index) in comment" :key="index">
+		<div class="comment-head">
+			<div class="img">
+				<img :src="item.user.avatar||ningque" alt="">
+				<div class="user">
+					<div class="name">{{item.user.username}}</div>
+					<div class="desc">
+						{{item.user.desc || '在街角的咖啡店终会遇见你'}}
+					</div>
+				</div>
 			</div>
-			<div>
-				<Button class="btn" size="small" @click="report">发表</Button>
+			
+		</div>
+		<router-link :to="{name: 'return', params: {id: item._id}}">
+			<div class="comment-body">
+				{{item.content}}
 			</div>
-    </div>
+		</router-link>
+		<div class="foot-comment">
+			<div>发表于</div>
+			<div class="time">{{item.createTime}}</div>
+			<div class="reply">
+				回复数 {{item.returns.length}}
+			</div>
+		</div>
+		
+	</div>
   </div>
 </template>
 
 <script>
-import E from 'wangeditor'
 import {Button, Toast} from 'mint-ui'
+import ningque from '@/assets/head.jpg'
+import moment from 'moment'
 export default {
-  name: 'ql-wang',
+	name: 'ql-wang',
+	inject: ['reload'],
   data () {
     return {
       editorContent: '',
-      isshow: true
+			// isshow: true,
+			comment: []
     }
   },
   components: {
@@ -29,22 +57,48 @@ export default {
 		Toast
   },
   methods: {
-		show () {
-			this.isshow = !this.isshow
+	// show () {
+	// 	this.isshow = !this.isshow
+	// },
+		getcomment(){
+			const bookId = this.$route.params.id
+			console.log(bookId, '书的id')
+			this.$axios.post(this.$api.getComment, {
+				id: bookId
+			}).then( res =>{
+				console.log(res)
+				let resData = res.data
+				// for(let i = 0; i<resData.length; i++){
+				// 	resData[i].createTime = moment(resData.createTime).format('YYYY.M.D H:mm')
+				// }
+				resData = resData.map(item =>{
+					item.createTime = moment(item.createTime).format('YYYY.M.D H:mm')
+					return item
+				})
+        this.comment = resData
+
+			})
 		},
 		report () {
 			if (this.editorContent){
-				this.$axios.post(this.$api.doComment, {content: this.editorContent}).then( res =>{
+				const id = this.$route.params.id
+				console.log(id, '书id')
+				console.log(this.editorContent, '评论')
+				this.$axios.post(this.$api.doComment, {
+					content: this.editorContent,
+					id: this.$route.params.id
+					}).then( res =>{
 					Toast({
-						message: '发表成功',
+						message: res.msg,
 						position:'center',
 						duration: 1000
 					})
-					this.editorContent = ''
-					setTimeout(() => {
-						this.isshow = true
-					},600)
-					this.$axios.get()
+					this.reload()
+					// this.editorContent = ''
+					// setTimeout(() => {
+					// 	this.isshow = true
+					// },600)
+					// this.$axios.get()
 				})
 			} else {
 				Toast({
@@ -53,55 +107,28 @@ export default {
 					duration: 1000
 				})
 			}
+		},
+		return(){
+
 		}
   },
   created () {
-
+		this.getcomment()
+		this.$emit('give','评论区')
   },
-  mounted (){
-    var editor = new E('#wang')
-    editor.customConfig.onchange = (html) => {
-        this.editorContent = html
-    }
-    editor.customConfig.menus = [
-    ]
-    editor.create()
+  // mounted (){
+  //   var editor = new E('#wang')
+  //   editor.customConfig.onchange = (html) => {
+  //       this.editorContent = html
+  //   }
+  //   editor.customConfig.menus = [
+  //   ]
+  //   editor.create()
     
-  }
+  // }
 }
 </script>
 
 <style scoped lang="scss">
-@import "@/globalcss/px-to-rem.scss";
-.publish{
-    display: flex;
-    flex-direction:column;
-    align-items: flex-end;
-}
-.content{
-    height: 200px;
-    width: 300px;
-    border: 1px solid #000;
-}
-.wang-wrap{
-    width: 100%;
-    overflow: hidden;
-    border: 1px solid #000;
-    border-radius: 5px;
-    height: px-to-rem(200);
-    margin-bottom: 15px;
-}
-.wang-input{
-    margin-top: 3px;
-    border: none;
-    outline: none;
-}
-.wang{
-    border: none;
-}
-.btn{
-    border: none;
-    background-color: rgb(240, 240, 240);
-    margin-right: 5px;
-}
+@import './index.scss'
 </style>

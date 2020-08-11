@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我是标题</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .wrap{
+          width:50%;
+          /* border: 1px solid red; */
+          height: 100%;
+          background-color: rgb(236, 179, 169);
+        }
+        .box{
+          position: fixed;
+          width:100px;
+          height:100px;
+          /* padding-bottom:100%; */
+          background-color: skyblue;
+          /* position:relative; */
+          opacity: 0.6;
+        }
+        .content{
+          width: 100px;
+          height: 1000px;
+          padding-top: 100px;
+          background-color: #d45353;
+          box-sizing: border-box;
+        }
+
+
+        .box img{
+          width:100%;
+          height:100%;
+          position:absolute;
+          border: 1px solid red;
+        }
+        .btn{
+          margin: 100px;
+          outline: none;
+          border: none;
+          background-color: white;
+        }
+      </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+        <!-- <img src="./head.jpg" class=".img" onclick="show()"> -->
+        </div>
+        <div class="content">
+          周青蓉
+        </div>
+    </div>
+    <!-- <div>
+      <button type="button" class="btn">搜索</button>
+    </div> -->
+</body>
+<script>
+  // document.title.style['text-align'] = 'center';
+  // document.querySelector('.img').click = ()=>{
+  //   console.log('哔哔哔')
+  // }
+  function show(){
+    console.log('哔哔哔')
+  }
+  function local(){
+    var obj = {}
+    obj.money = 2
+    obj.goodsCode = 3
+    obj.shopId = 4
+    localStorage.setItem('ticketGoods',JSON.stringify(obj))
+    console.log(JSON.parse(localStorage.getItem('ticketGoods')).money)
+  }
+  local()
+  // "ZJ1594277103944"
+</script>
+</html>

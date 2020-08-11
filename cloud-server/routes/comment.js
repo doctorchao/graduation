@@ -4,6 +4,6 @@ const auth = require('../controller/auth')
 const { doComment, getComment} = require('../controller/comment')
 
 router.post('/', auth, doComment)
-router.get('/', getComment)
+router.post('/get', getComment)
 
 module.exports = router

@@ -2,8 +2,8 @@ import axios from 'axios'
 
 const fetch = axios.create({
   // baseURL: 'https://m.yaojunrong.com/'
-  baseURL: process.env.BASE_URL // 开发环境下
-  // baseURL: 'http://192.168.1.118' // 打包后
+  baseURL: process.env.BASE_URL // 开发环境下/
+  // baseURL: 'http://192.168.43.245' // 打包后
 })
 // 添加响应拦截器
 fetch.interceptors.response.use(function (response) {

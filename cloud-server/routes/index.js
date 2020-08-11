@@ -11,6 +11,7 @@ const uploadRouter = require('./upload')
 const colRouter = require('./collection')
 const readRouter = require('./read')
 const comRouter = require('./comment')
+const reRouter = require('./return')
 
 // /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -28,6 +29,7 @@ router.use('/upload', uploadRouter)
 router.use('/collection', colRouter)
 router.use('/readList', readRouter)
 router.use('/comment', comRouter)
+router.use('/return', reRouter)
 
 module.exports = router;
 

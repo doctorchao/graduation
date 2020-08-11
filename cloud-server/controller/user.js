@@ -44,7 +44,6 @@ async function register(req, res, next){
                             msg: '验证码错误'
                         })
                     }
-                    
                 } else{
                     res.json({
                         code: 400,

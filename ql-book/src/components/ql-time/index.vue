@@ -23,7 +23,7 @@ export default {
 			this.olddate = new Date (valuedate)
 			const oldtime = this.olddate.getTime() // 获取服务器所给Unix时间戳
 			const currenttime = this.currentdate.getTime() // 获取本地实时Unix时间戳
-			const reducetime = currenttime - oldtime // 获取本地实时Unix时间戳
+			const reducetime = currenttime - oldtime // 两者之差
 			const time = new Date()
 			time.setHours(0)
 			time.setMinutes(0)
@@ -34,7 +34,9 @@ export default {
 			// 小于一天 显示多少小时前
 			// 小于一个月 显示多少天前
 			// 小于一年 显示多少个月前
-			if ((reducetime/(1000*60*60)<1) && (zerotime-oldtime <= 0)) {
+			if((reducetime/(1000*60*60)<1) && (zerotime-oldtime <= 0)){
+				this.currenttext = `刚刚`
+			} else if ((reducetime/(1000*60*60)<1) && (zerotime-oldtime <= 0)) {
 				this.currenttext = `${Math.round(reducetime/(1000*60))} 分钟前`
 			} else if ((reducetime/(1000*60*60) >= 1)&&(zerotime-oldtime <= 0)){
 				this.currenttext = `${Math.round(reducetime/(1000*60*60))} 小时前`
@@ -75,5 +77,5 @@ export default {
 </script>
 
 <style scoped>
-	
+
 </style>

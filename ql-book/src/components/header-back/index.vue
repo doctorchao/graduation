@@ -30,10 +30,10 @@ export default {
 .header {
 	margin-bottom: px-to-rem(100);
 	.header-back {
-		background-color: rgb(255, 255, 255);
+		background-color: rgb(90, 88, 88);
 		// color: rgb(38, 148, 238);
 		color: #656b79;
-		box-shadow: 0px 5px 5px #e0e1e2;
+		// box-shadow: 0px 5px 0px #3298ff;
 		i {
 			font-size: 20px;
 			// color: rgb(38, 148, 238)

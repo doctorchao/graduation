@@ -3,7 +3,7 @@
 		<qlinput class="ql-input" :value="usermsg.desc"
 			@change="handlechange" placeholder='编辑个性签名'></qlinput>
 		<div class="desc">
-			请让我在人群之中多看你一眼
+			向大家介绍一下自己吧
 		</div>
 		<div class="btn-wrap">
 			<Button class="btn" type="primary" size='large' @click="handlesave">确认更改</Button>
@@ -38,10 +38,11 @@ export default {
 						message: '修改成功',
 						position:'center',
 						duration: 1000
-					})
+          })
+          this.$store.dispatch('getusermsg')
 					// this.getusermsg() 那么在查看个人信息页面也会发送请求刷新信息
 					setTimeout(() => {
-						this.$router.push('/center')
+						this.$router.push('/change')
 					},1000)
 				}
 			})
@@ -57,7 +58,7 @@ export default {
 	}
 	// computed: {
 	// 	...mapState(['usermsg']) // 这个函数返回一个对象，不展开的话computed下面只能写它一个
-	//  ...mapState(['getusermsg']) 
+	//  ...mapState(['getusermsg'])
 	// }
 }
 </script>
@@ -68,7 +69,7 @@ export default {
 	width: 300px;
 	height: 20px;
 	line-height: 20px;
-	color: rgb(250, 46, 46)
+	color: rgb(109, 109, 109)
 }
 .btn {
 	margin-top: 20px;

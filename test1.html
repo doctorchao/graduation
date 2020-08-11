@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .fix{
+            position: fixed;
+            top: 200px;
+            left: 200px;
+        }
+        .box1{
+            width: 200px;
+            height: 2000px;
+            background-color: aqua;
+        }
+        .box2{
+            width: 200px;
+            height: 100px;
+            background-color: rgb(226, 106, 190);
+        }
+        .box{
+            margin-top: 20px;
+        }
+        #box img{
+            width: 50px;
+            height: 50px;
+            vertical-align: bottom;
+        }
+        .head{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .middle{
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+    <div class="fix" onclick="show()">点击</div> -->
+    <div class="head">
+        <div id="box" onclick="fuck()">
+            <img src="./head.jpg" alt="">
+            <!-- <span>周青蓉</span> -->
+        </div>
+        <div class="middle">
+
+        </div>
+        <div class="middle">
+
+        </div>
+        <div id="box" onclick="kiss()">
+            <img src="./head.jpg" alt="">
+            <!-- <span>史瑞雪宝宝</span> -->
+        </div>
+    </div>
+</body>
+<script>
+    // function show(){
+    //     console.log(document.querySelector('.box'))
+    //     console.log(document.querySelector('.box').offsetHeight, 'offset高度')
+    //     console.log(document.querySelector('.box').scrollHeight, 'scroll高度')
+    //     console.log(document.body.scrollTop || document.documentElement.scrollTop, '已滚动高度')
+    //     console.log(window.innerHeight, 'window页面视图高度')
+    //     // console.log(document.documentElement.clientHeight || document.body, 'document页面视图高度')
+
+
+    // }
+    // var offsetHeight = document.querySelector('.box').offsetHeight
+    // var lock = true
+    // window.onscroll = function () {
+    //     var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    //     var innerHeight = window.innerHeight; // 页面可视高度
+    //     if((offsetHeight  == (scrollTop + innerHeight))&&lock){
+    //         console.log('到啦到啦')
+    //         lock = false
+    //     }
+    //     console.log(lock,'锁')
+    // }
+    function fuck(){
+        if(!document.querySelector('#box img')){
+            console.log('fuck周青蓉')
+        }else{
+            console.log('kiss周青蓉')
+        }
+        localStorage.setItem('girl','周青蓉')
+    }
+    function kiss(){
+        var gf = localStorage.getItem('girl')
+        console.log(gf,'女孩')
+    }
+</script>
+</html>

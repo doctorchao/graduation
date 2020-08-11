@@ -10,9 +10,13 @@ const comModel = new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'book'
     },
-    return: {
+    returns: [{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'comment'
+        ref: 'returns'
+    }],
+    index: {
+        type: Number,
+        default: 1
     }
     
 },{versionKey: false, timestamps: {createdAt: 'createTime', updatedAt: 'updateTime'}})

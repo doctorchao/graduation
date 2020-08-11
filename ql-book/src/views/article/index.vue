@@ -28,12 +28,11 @@
       <!-- </a> -->
     </div>
   </div>
-  
 </template>
 
 <script>
 import Showdown from 'showdown'
-import {Toast, Header} from 'mint-ui'
+import {Toast} from 'mint-ui'
 export default {
   props: {
     options: Object
@@ -52,7 +51,7 @@ export default {
     }
   },
   components: {
-    Header
+    Toast
   },
   methods: {
     getarticle (itemid) {// 老师的后台数据多了一层article 得要是res.data.article
@@ -79,7 +78,7 @@ export default {
     handleadd () {
       if (this.fontSize >= 74) {
         Toast({
-          message: '啊！我的眼睛！',
+          message: '已经是最大啦',
           position: 'center',
           duration: 1000
         })
@@ -90,7 +89,7 @@ export default {
     handlereduce () {
       if (this.fontSize <= 28) {
         Toast({
-          message: '招子够亮啊！？',
+          message: '已经最小啦',
           position: 'center',
           duration: 1000
         })
@@ -120,7 +119,7 @@ export default {
       if (isprev === 'prev') {
         if (this.index === 0) {
           Toast({
-            message: '你要去山顶洞吗？',
+            message: '到第一章了哦',
             position: 'center',
             duration: 1000
           })
@@ -131,7 +130,7 @@ export default {
       } else if (isprev === 'next') {
         if (this.index === this.titles.length - 1) {
           Toast({
-            message: '没了！没了！ 走走走！',
+            message: '没有更多章节了呢',
             position: 'center',
             duration: 1000
           })

@@ -42,7 +42,7 @@ export default {
     options: Object
   },
   created () {
-    // console.log(this.options, '被传图书')
+    console.log(this.options, '被传图书')
   }
 }
 </script>

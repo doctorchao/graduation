@@ -1,9 +1,12 @@
 <template>
 	<div>
 		<label class="ql-upload-wrap">
+			<!-- <div class="ql-upload-wrap">  不行-->
 			<input type="file" class="ql-upload-input" @change="change">
 			<!-- <div class="ql-upload-btn">点击选择文件</div> -->
 			<slot></slot>
+			<!-- </div> -->
+
 		</label>
 	</div>
 </template>
@@ -21,6 +24,7 @@ export default {
 		gettoken () {
 			this.$axios.get(this.$api.upload).then(res => {
 				this.token = res.data.token
+				// console.log(this.token)
 			})
 		},
 		change ($event) {
@@ -28,7 +32,7 @@ export default {
 			var form = new FormData()
 			form.append('file',file)
 			form.append('token',this.token)
-			this.$axios.post('http://upload-z1.qiniup.com',form).then(res => {
+			this.$axios.post('http://upload-z2.qiniup.com',form).then(res => {
 				console.log(res)
 				this.$emit('success',res.url)
 			})
@@ -46,13 +50,13 @@ export default {
 	.ql-upload-input {
 		display: none
 	}
-	.ql-upload-btn {
-		width: 100px;
-		height: 40px;
-		border: 1px solid #000;
-		text-align: center;
-		line-height: 40px;
-		color: pink;
-	}
+	// .ql-upload-btn {
+	// 	width: 100px;
+	// 	height: 40px;
+	// 	border: 1px solid #000;
+	// 	text-align: center;
+	// 	line-height: 40px;
+	// 	color: pink;
+	// }
 }
 </style>

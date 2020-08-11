@@ -64,3 +64,5 @@ cd /opt/soft/mongodb/bin
 db.test_info.find({"tname": {$regex: '测试', $options:'i'}}) 
 
 db.test_info.find({"tname": {$regex:/测试.*/i}}) 
+
+书籍详情 获取评论

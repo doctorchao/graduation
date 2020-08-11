@@ -18,9 +18,6 @@ export default {
 		}
 	},
 	methods: {
-		get(val) {
-			this.doctitle = val
-		}
 	},
 }
 </script>
