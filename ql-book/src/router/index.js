@@ -306,6 +306,14 @@ const router = new Router({
       },
       component: () => import('@/views/aTest/shopOrder')
     },
+    {
+      path: '/test',
+      name: 'test',
+      meta: {
+        title: '测试模块'
+      },
+      component: () => import('@/views/z-test/test')
+    },
   ],
   scrollBehavior(to,from,saveTop){ // 页面加载后位置置顶
     if(saveTop){

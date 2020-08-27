@@ -25,6 +25,34 @@
             <img src="../../assets/img/miniProgramMe/qianjin.png" class="img-right">
           </div> 
       </div> -->
+      <img class="backImg" v-if="groupInfo.dwZuBackImg" :src="groupInfo.dwZuBackImg" />
+    <div class="sl_container" id="scrollDiv">
+      <div class="topDiv">
+        <van-nav-bar :left-text="groupInfo.dwZuName" v-if="showNavBar" left-arrow @click-left="pageBack()" style="background-color: #3297FF;">
+          <div slot="right">
+            <img src="../../assets/img/pub/pub_ico_soubai.png" class="rightSearchIcon" @click="pageTo('/communityList')" />
+            <img src="../../assets/img/pub/pub_ico_more_white.png" class="rightHeadIcon" @click="headBtnFlag = true" />
+          </div>
+        </van-nav-bar>
+
+        <marquee direction="left" class="stripe" scrollamount="2">
+          <span class="residentNum">居民{{numMap.residentNum}}</span>
+          <span class="fansNum">粉丝{{numMap.fansNum}}</span>
+          <span class="touristNum">游客{{numMap.touristNum}}</span>
+          <span>
+            z社区公告：
+            <template v-if="groupInfo.dwZuNotice">
+              {{groupInfo.dwZuNotice}}
+            </template>
+            <template v-else>
+              欢迎大家来到{{groupInfo.dwZuName}}
+            </template>
+          </span>
+        </marquee>
+
+        <!-- 跳转的图片列表  :orgId="orgInfo.id"-->
+        <commonModules :orgId="orgInfo.id" :groupId="groupInfo.id" :friendFlag="friendFlag? true : false" @friendFunction="friendFunction" />
+      </div>
   </div>
   
 </template>

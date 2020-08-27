@@ -162,7 +162,7 @@ export default {
       e.stopPropagation();
       this.endx = e.changedTouches[0].clientX
       this.endy = e.changedTouches[0].clientY
-      if((this.reduceX<= (-20))&&(Math.abs(this.reduceY)<=30)){
+      if((this.reduceX<= (-20))&&(Math.abs(this.reduceY)<=80)){
         switch(true){
           case (this.pick1&&this.pick4):
             this.pick1 = true;
@@ -212,7 +212,7 @@ export default {
           //   this.pick5 = true;
           // break;
         }
-      }else if((this.reduceX>= 20)&&(Math.abs(this.reduceY)<=30)){
+      }else if((this.reduceX>= 20)&&(Math.abs(this.reduceY)<=80)){
         switch(true){
           case (this.pick3&&this.pick5):
             this.pick1 = false;

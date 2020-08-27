@@ -52,7 +52,7 @@
     <div class="box2"></div> -->
     
     <img src="https://wx4.sinaimg.cn/large/59853be1ly1gekzwmpj9wj20f408i11j.jpg" alt="" class="img-wrap" @click="stop1">
-    <video src="../../assets/VID_20191215_210202.mp4" controls="controls" class="img-wrap"></video>
+    <!-- <video src="../../assets/VID_20191215_210202.mp4" controls="controls" class="img-wrap"></video> -->
     <div>{{word}}</div>
     <div class="box3"></div>
     <!-- <van-nav-bar :left-text="isHide?'返回':''" :left-arrow = isHide  

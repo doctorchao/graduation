@@ -31,8 +31,8 @@
         </div> -->
         <ul class="slide-box">
           <template>
-            <li class="slide-item" v-for="(item,index) in chooseList" v-if="item" :key="index">
-              <van-button :style="item==chooseSecondType?`background-color: #3298FF;color: #fff;`:''" style="background-color: #E3E3E3;"
+            <li class="slide-item" v-for="(item,index) in chooseList" :key="index">
+              <van-button :class="item == chooseSecondType ? 'select_btn':''" style="background-color: #E3E3E3;"
                 @click="chooseBtn(item)" round size="small">{{item}}</van-button>
             </li>
           </template>
@@ -386,5 +386,9 @@
     line-height: 30px;
     font-size: 12px;
     text-align: center;
+  }
+  .select_btn{
+    background-color: #3298FF!important;
+    color: #fff;
   }
 </style>

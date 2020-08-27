@@ -230,3 +230,5 @@ function abc(index){
 
 let time = new Date (1597129328000)
 console.log(time.toLocaleString())
+var str = 'asd,'
+console.log(str.substr(0,str.length-1))
